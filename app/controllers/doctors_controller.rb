@@ -22,7 +22,7 @@ class DoctorsController < ApplicationController
   # POST /doctors
   def create
     @doctor = Doctor.new(doctor_params)
-
+    @doctor.user = current_user
     if @doctor.save
       redirect_to @doctor, notice: 'Doctor was successfully created.'
     else

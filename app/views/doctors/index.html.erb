@@ -31,3 +31,32 @@
 <br>
 
 <%= link_to 'New Doctor', new_doctor_path %>
+
+<div class="container mt-3">
+  <div class="row">
+    <% @doctors.each do |doctor| %>
+      <div class="col-4">
+        <div class="doc-card">
+         <div class="doc-card-image" style="background-image: url('https://bootdey.com/img/Content/avatar/avatar7.png')"></div>
+          <div class="doc-card-content">
+            <div class="doc-card-title">
+              <h4><%= doctor.name %></h4>
+            </div>
+            <p><%= doctor.address %></p>
+            <div class="flex">
+              <div class="flex">
+                <i class="fas fa-stethoscope"></i><span>&nbsp;<%= doctor.specialty %></span>
+              </div>
+              <div class="flex ml-3">
+                <i class="fas fa-star mr-2"></i><%= doctor.rating %></li>
+              </div>
+            </div>
+          </div>
+          <div class="doc-card-actions">
+            <%= link_to 'More info', doctor %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
